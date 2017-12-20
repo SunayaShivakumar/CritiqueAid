@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- meta information -->
+        <meta charset="UTF-8">
+        <meta name="description" content="Reddit Chrome Extension to aid critique or feedback quality.">
+        <meta name="author" content="Sunaya Shivakumar">
+
+        <!-- title -->
+        <title>CritiqueAid</title>
+
+        <!-- stylesheets -->
+        <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css">
+        <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- scripts -->
+        <script src="../scripts/jquery-3.2.1.min.js"></script>
+    </head>
+
+    <body>
+        <!-- div that displays the main title of this extension -->
+        <div id="ca-header">
+            <h2 id="ca-title">
+                <span id="ca-yellow">Critique</span><span id="ca-blue">Aid</span>
+            </h2>
+
+            <!-- button to email bug reports and or feedback -->
+            <a href="mailto:sshivak2@illinois.edu?Subject=CritiqueAid%20Feedback" target="_blank" id="ca-report-link">
+                <button id="ca-report" type="button">
+                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                </button>
+            </a>
+        </div>
+
+        <!-- div that displays the detailed description of the extension, and
+        also the help or how-to-use description -->
+        <div id="ca-body">
+            <!-- options settings and descriptions -->
+            <p class="ca-text">
+                Customize how you use CritiqueAid to better suit your preferences.
+                You can decide if you want to see visualizations of how example
+                comments are displayed, and you can adjust the number of example
+                comments that you see.
+            </p>
+
+            <!-- visualizations settings -->
+            <div class="ca-options-setting">
+                <p class="ca-header-text">
+                    Visualizations
+                </p>
+                <input type="range" min="1" max="2" value="1" id="ca-visuals-slider" class="slider">
+                <ul id="ca-visuals-values">
+                    <li>No</li>
+                    <li>Yes</li>
+                </ul>
+            </div>
+
+            <!-- number of examples settings -->
+            <div class="ca-options-setting">
+                <p class="ca-header-text">
+                    Number of Examples
+                </p>
+                <input type="range" min="1" max="5" value="3" id="ca-examples-slider" class="slider">
+                <ul id="ca-examples-values">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+
+            <div id="options-container">
+                <button id="ca-save" type="button">
+                    <p class="ca-description">
+                        Save Your Preferences
+                    </p>
+                </button>
+                <button id="ca-reset" type="button">
+                    <p class="ca-description">
+                        Reset to Default Options
+                    </p>
+                </button>
+            </div>
+        </div>
+
+        <!-- div that displays the tabs or options which include buttons for
+        viewing a good example, a bad example, the about view of the extension -->
+        <div id="ca-options">
+            <ul>
+                <!-- option for viewing good example -->
+                <li>
+                    <a href="popup.html">
+                        <button id="good-example" type="button">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            <p class="ca-description">
+                                Good
+                            </p>
+                        </button>
+                    </a>
+                </li>
+
+                <!-- option for viewing bad example -->
+                <li>
+                    <button id="bad-example" type="button" disabled>
+                        <i class="fa fa-ban" aria-hidden="true"></i>
+                        <p class="ca-description">
+                            Bad
+                        </p>
+                    </button>
+                </li>
+
+                <!-- option for adjusting settings -->
+                <li>
+                    <a href="options.html">
+                        <button id="options" type="button">
+                            <i class="fa fa-cog" aria-hidden="true"></i>
+                            <p class="ca-description">
+                                Options
+                            </p>
+                        </button>
+                    </a>
+                </li>
+
+                <!-- option for viewing more info about the extension -->
+                <li>
+                    <a href="about.html">
+                        <button id="about" type="button">
+                            <i class="fa fa-question" aria-hidden="true"></i>
+                            <p class="ca-description">
+                                About
+                            </p>
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </body>
+
+    <!-- popup.js NEEDS to be after the body to execute properly -->
+    <script type="text/javascript" src="../scripts/options.js"></script>
+</html>

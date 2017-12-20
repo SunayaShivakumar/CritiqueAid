@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- meta information -->
+        <meta charset="UTF-8">
+        <meta name="description" content="Reddit Chrome Extension to aid critique or feedback quality.">
+        <meta name="author" content="Sunaya Shivakumar">
+
+        <!-- title -->
+        <title>CritiqueAid</title>
+
+        <!-- stylesheets -->
+        <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css">
+        <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+
+        <!-- scripts -->
+        <script src="../scripts/jquery-3.2.1.min.js"></script>
+    </head>
+
+    <body>
+        <!-- div that displays the main title of this extension -->
+        <div id="ca-header">
+            <h2 id="ca-title">
+                <span id="ca-yellow">Critique</span><span id="ca-blue">Aid</span>
+            </h2>
+
+            <!-- button to email bug reports and or feedback -->
+            <a href="mailto:sshivak2@illinois.edu?Subject=CritiqueAid%20Feedback" target="_blank" id="ca-report-link">
+                <button id="ca-report" type="button">
+                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                </button>
+            </a>
+
+        </div>
+
+        <!-- div that displays the search bar to search from,
+        the search result contents which includes an image and a reddit comment -->
+        <div id="ca-body">
+            <!-- search text and input field -->
+            <p class="ca-header-text">
+                Search
+            </p>
+
+            <!-- search field and button -->
+            <div id="wrapper">
+                <input type="text" id="ca-search-field" placeholder="Search for a keyword...">
+                <button id="ca-search" type="button">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <!-- search result's reddit comment and link to original post -->
+            <p id="ca-text">
+                When you search for keywords like "resume" or "portfolio" in the field above,
+                you will get examples of what a good critique would look like here.
+            </p>
+
+            <div id="ca-extra-info">
+                <p id="ca-link-text">
+                    <a id="ca-link">
+                        Click here to view the original post in a new tab.
+                    </a>
+                </p>
+
+                <!-- buttons to view the next and previous example comments -->
+                <div id="ca-more-examples">
+                    <ul>
+                        <li>
+                            <button id="prev-example" type="button">
+                                <p class="ca-description">
+                                    Prev
+                                </p>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="next-example" type="button">
+                                <p class="ca-description">
+                                    Next
+                                </p>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- button and canvases to view visualizations -->
+                <div id="container">
+                    <button id="ca-visuals" type="button">
+                        <p id="ca-visuals-text" class="ca-description">
+                            Show Visualizations
+                        </p>
+                    </button>
+                    <div id="charts-content">
+                        <p class="ca-text">
+                            The example comment that you see above was picked
+                            out of a relevant post with the highest number of comments
+                            (see chart 1), and then filtered out as a good or bad
+                            example based on it's length (see chart 2).
+                        </p>
+                        <canvas id="chart-comments" class="ca-chart"></canvas>
+                        <canvas id="chart-length" class="ca-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- div that displays the tabs or options which include buttons for
+        viewing a good example, a bad example, the about view of the extension -->
+        <div id="ca-options">
+            <ul>
+                <!-- option for viewing good example -->
+                <li>
+                    <a href="popup.html">
+                        <button id="good-example" type="button">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                            <p class="ca-description">
+                                Good
+                            </p>
+                        </button>
+                    </a>
+                </li>
+
+                <!-- option for viewing bad example -->
+                <li>
+                    <button id="bad-example" type="button">
+                        <i class="fa fa-ban" aria-hidden="true"></i>
+                        <p class="ca-description">
+                            Bad
+                        </p>
+                    </button>
+                </li>
+
+                <!-- option for adjusting settings -->
+                <li>
+                    <a href="options.html">
+                        <button id="options" type="button">
+                            <i class="fa fa-cog" aria-hidden="true"></i>
+                            <p class="ca-description">
+                                Options
+                            </p>
+                        </button>
+                    </a>
+                </li>
+
+                <!-- option for viewing more info about the extension -->
+                <li>
+                    <a href="about.html">
+                        <button id="about" type="button">
+                            <i class="fa fa-question" aria-hidden="true"></i>
+                            <p class="ca-description">
+                                About
+                            </p>
+                        </button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </body>
+
+    <!-- popup.js NEEDS to be after the body to execute properly -->
+    <script type="text/javascript" src="../scripts/chart.js"></script>
+    <script type="text/javascript" src="../scripts/visualize.js"></script>
+    <script type="text/javascript" src="../scripts/popup.js"></script>
+</html>

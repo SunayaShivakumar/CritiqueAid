@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "CritiqueAid",
+  "version": "1.0",
+  "description": "Reddit Chrome Extension to aid critique or feedback quality.",
+  "author": "Sunaya Shivakumar",
+
+  "icons": {
+    "128": "images/icon_128.png",
+    "48": "images/icon_48.png"
+  },
+
+  "page_action": {
+    "default_icon": "images/icon_48.png",
+    "default_popup": "views/popup.html",
+    "default_title": "CritiqueAid"
+  },
+
+  "background": {
+    "scripts": [
+      "scripts/jquery-3.2.1.min.js",
+      "scripts/background.js"
+    ],
+    "persistent": false
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.reddit.com/r/design_critiques/*"
+      ],
+      "js": [
+        "scripts/jquery-3.2.1.min.js",
+        "scripts/content.js"
+      ]
+    }
+  ],
+
+  "permissions": [
+    "storage",
+    "tabs",
+    "https://www.reddit.com/r/design_critiques/*"
+  ]
+}
