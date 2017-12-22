@@ -175,6 +175,9 @@ searchInput.onclick = function () {
                     good example button is clicked and a search query is submitted.
                     */
                     nextExample.onclick = function () {
+                        nextExample.disabled = true;
+                        prevExample.disabled = false;
+
                         // set the href attribute for the link to original reddit post.
                         link.setAttribute("href", exampleURLs[1]);
                         // create new tab upon clicking above link.
@@ -214,6 +217,9 @@ searchInput.onclick = function () {
                     good example button is clicked and a search query is submitted.
                     */
                     prevExample.onclick = function () {
+                        nextExample.disabled = false;
+                        prevExample.disabled = true;
+
                         // set the href attribute for the link to original reddit post.
                         link.setAttribute("href", exampleURLs[0]);
                         // create new tab upon clicking above link.
@@ -262,6 +268,8 @@ goodExample.onclick = function () {
         "or \"portfolio\" in the field above, " +
         "you will get examples of what a good critique would look like here.";
 
+    nextExample.disabled = false;
+    prevExample.disabled = true;
     document.getElementById("ca-extra-info").style.display = "none";
 };
 
@@ -277,6 +285,8 @@ badExample.onclick = function () {
         "or \"portfolio\" in the field above, " +
         "you will get examples of what a bad critique here.";
 
+    nextExample.disabled = false;
+    prevExample.disabled = true;
     document.getElementById("ca-extra-info").style.display = "none";
 
     /*
@@ -350,6 +360,9 @@ badExample.onclick = function () {
                         bad example button is clicked and a search query is submitted.
                          */
                         nextExample.onclick = function () {
+                            nextExample.disabled = true;
+                            prevExample.disabled = false;
+
                             // set the href attribute for the link to original reddit post.
                             link.setAttribute("href", exampleURLs[1]);
                             // create new tab upon clicking above link.
@@ -389,6 +402,9 @@ badExample.onclick = function () {
                         bad example button is clicked and a search query is submitted.
                          */
                         prevExample.onclick = function () {
+                            nextExample.disabled = false;
+                            prevExample.disabled = true;
+
                             // set the href attribute for the link to original reddit post.
                             link.setAttribute("href", exampleURLs[0]);
                             // create new tab upon clicking above link.

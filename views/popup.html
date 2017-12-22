@@ -24,8 +24,8 @@
                 <span id="ca-yellow">Critique</span><span id="ca-blue">Aid</span>
             </h2>
 
-            <!-- button to email bug reports and or feedback -->
-            <a href="mailto:sshivak2@illinois.edu?Subject=CritiqueAid%20Feedback" target="_blank" id="ca-report-link">
+            <!-- button to submit bug reports and or feedback -->
+            <a href="https://goo.gl/forms/1lPBr7cgMIGsp5K42" target="_blank" id="ca-report-link">
                 <button id="ca-report" type="button">
                     <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
                 </button>
@@ -66,7 +66,7 @@
                 <div id="ca-more-examples">
                     <ul>
                         <li>
-                            <button id="prev-example" type="button">
+                            <button id="prev-example" type="button" disabled>
                                 <p class="ca-description">
                                     Prev
                                 </p>
@@ -91,10 +91,10 @@
                     </button>
                     <div id="charts-content">
                         <p class="ca-text">
-                            The example comment that you see above was picked
-                            out of a relevant post with the highest number of comments
+                            The example comments that you see above were picked
+                            out of relevant posts with the highest number of comments
                             (see chart 1), and then filtered out as a good or bad
-                            example based on it's length (see chart 2).
+                            example based on the comment's length (see chart 2).
                         </p>
                         <canvas id="chart-comments" class="ca-chart"></canvas>
                         <canvas id="chart-length" class="ca-chart"></canvas>
@@ -127,18 +127,6 @@
                             Bad
                         </p>
                     </button>
-                </li>
-
-                <!-- option for adjusting settings -->
-                <li>
-                    <a href="options.html">
-                        <button id="options" type="button">
-                            <i class="fa fa-cog" aria-hidden="true"></i>
-                            <p class="ca-description">
-                                Options
-                            </p>
-                        </button>
-                    </a>
                 </li>
 
                 <!-- option for viewing more info about the extension -->

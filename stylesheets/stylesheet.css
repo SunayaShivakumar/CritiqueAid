@@ -36,8 +36,8 @@ li {
 
 button {
     font-size: var(--ca-font-size);
-    width: 65px;
-    height: 45px;
+    width: 90px;
+    height: 50px;
     text-decoration: none;
     text-align: center;
     border: var(--ca-yellow) solid 1px;
@@ -51,6 +51,14 @@ button:hover, button:active, button.active {
 
 button:disabled {
     border: var(--ca-grey) solid 1px;
+}
+
+button:disabled .fa {
+    color: var(--ca-grey);
+}
+
+button:disabled .ca-description {
+    color: var(--ca-grey);
 }
 
 button:focus, #ca-search-field:focus, #ca-search:focus, #ca-report:focus, #ca-report-link {
@@ -126,7 +134,7 @@ button:focus, #ca-search-field:focus, #ca-search:focus, #ca-report:focus, #ca-re
     display: none;
 }
 
-#ca-visuals, #ca-save, #ca-reset {
+#ca-visuals {
     width: 100%;
     height: auto;
     padding: var(--ca-padding-sm) 0;
@@ -147,7 +155,7 @@ button:focus, #ca-search-field:focus, #ca-search:focus, #ca-report:focus, #ca-re
 }
 
 #ca-more-examples li:not(:last-child) {
-    margin-right: 55%;
+    margin-right: 38%;
 }
 
 #ca-more-examples li {
@@ -184,11 +192,6 @@ button:focus, #ca-search-field:focus, #ca-search:focus, #ca-report:focus, #ca-re
 .ca-chart {
     margin-bottom: var(--ca-padding-med);
     border-bottom: var(--ca-grey) dotted 1px;
-}
-
-.ca-options-setting {
-    border-bottom: var(--ca-grey) dotted 1px;
-    margin-bottom: var(--ca-padding-med);
 }
 
 .slider {
