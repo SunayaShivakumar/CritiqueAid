@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "CritiqueAid",
   "version": "1.0",
-  "description": "Reddit Chrome Extension to aid critique or feedback quality.",
+  "description": "Google Chrome Extension for Reddit to aid in design critique quality.",
   "author": "Sunaya Shivakumar",
 
   "icons": {
