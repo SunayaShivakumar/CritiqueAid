@@ -1,7 +1,11 @@
+<a href="https://chrome.google.com/webstore/detail/critiqueaid/ciiljocaanbjbmhhnoeemepjmndjeijj">
 # CritiqueAid
+</a>
 Google Chrome Extension for Reddit to aid in design critique quality.
 
-<img src="https://github.com/SunayaShivakumar/CritiqueAid/blob/master/images/critiqueaid.png" width=480 align="center">
+<div align="center">
+	<img src="https://github.com/SunayaShivakumar/CritiqueAid/blob/master/images/critiqueaid.png" width=480>
+</div>
 
 #### How to use CritiqueAid:
 
