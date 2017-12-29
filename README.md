@@ -13,3 +13,11 @@ Google Chrome Extension for Reddit to aid in design critique quality.
 * To view examples bad critiques, click on the "Bad" tab at the bottom, then search again.
 
 <img src="https://github.com/SunayaShivakumar/CritiqueAid/blob/master/images/critiqueaid.gif">
+
+#### Version History:
+* 1.0 (Published 12/22/17):
+	* Initial release as seen in images and gif above.
+* 1.1 (Published 12/28/17):
+	* Displays original post's title to accompany example comment.
+	* Highlights selected tabs at the bottom.
+	* Minor bug fix with the prev and next buttons.
