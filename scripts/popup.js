@@ -111,8 +111,12 @@ the search functionality currently returns the newest comment on a post.
  */
 searchInput.onclick = function () {
     var searchFor = document.getElementById("ca-search-field");
+    var postTitle = document.getElementById("ca-post-title");
     var text = document.getElementById("ca-text");
     var link = document.getElementById("ca-link");
+
+    nextExample.disabled = false;
+    prevExample.disabled = true;
 
     document.getElementById("ca-extra-info").style.display = "block";
 
@@ -159,6 +163,7 @@ searchInput.onclick = function () {
                                 console.log(exError);
                             } else {
                                 // set innerHTML text with comment.
+                                postTitle.innerHTML = exResponseData[0].data.children[0].data.title;
                                 var comment = getComment(exResponseData, true);
                                 text.innerHTML = comment.data.body;
 
@@ -200,6 +205,7 @@ searchInput.onclick = function () {
                                 if (exError !== null) {
                                     console.log(exError);
                                 } else {
+                                    postTitle.innerHTML = exResponseData[0].data.children[0].data.title;
                                     var comment = getComment(exResponseData, true);
                                     text.innerHTML = comment.data.body;
 
@@ -242,6 +248,7 @@ searchInput.onclick = function () {
                                 if (exError !== null) {
                                     console.log(exError);
                                 } else {
+                                    postTitle.innerHTML = exResponseData[0].data.children[0].data.title;
                                     var comment = getComment(exResponseData, true);
                                     text.innerHTML = comment.data.body;
 
@@ -263,6 +270,8 @@ function to execute when the goodExample button is clicked.
 changes the placeholder text.
 */
 goodExample.onclick = function () {
+    goodExample.classList.add("selected");
+    badExample.classList.remove("selected");
     var text = document.getElementById("ca-text");
     text.innerHTML = "When you search for keywords like \"resume\" " +
         "or \"portfolio\" in the field above, " +
@@ -280,10 +289,13 @@ if user searches for a keyword on this view, this function also
 calls the getJSON function to display an example of a bad comment.
 */
 badExample.onclick = function () {
+    badExample.classList.add("selected");
+    goodExample.classList.remove("selected");
+    var postTitle = document.getElementById("ca-post-title");
     var text = document.getElementById("ca-text");
     text.innerHTML = "Search for keywords like \"resume\" " +
-        "or \"portfolio\" in the field above, " +
-        "you will get examples of what a bad critique here.";
+        "or \"portfolio\" in the field above, and " +
+        "you will get examples of what a bad critique would look like here.";
 
     nextExample.disabled = false;
     prevExample.disabled = true;
@@ -296,6 +308,9 @@ badExample.onclick = function () {
     searchInput.onclick = function () {
         var searchFor = document.getElementById("ca-search-field");
         var link = document.getElementById("ca-link");
+
+        nextExample.disabled = false;
+        prevExample.disabled = true;
 
         document.getElementById("ca-extra-info").style.display = "block";
 
@@ -344,6 +359,7 @@ badExample.onclick = function () {
                                 if (exError !== null) {
                                     console.log(exError);
                                 } else {
+                                    postTitle.innerHTML = exResponseData[0].data.children[0].data.title;
                                     var comment = getComment(exResponseData, false);
                                     text.innerHTML = comment.data.body;
 
@@ -385,6 +401,7 @@ badExample.onclick = function () {
                                     if (exError !== null) {
                                         console.log(exError);
                                     } else {
+                                        postTitle.innerHTML = exResponseData[0].data.children[0].data.title;
                                         var comment = getComment(exResponseData, false);
                                         text.innerHTML = comment.data.body;
 
@@ -427,6 +444,7 @@ badExample.onclick = function () {
                                     if (exError !== null) {
                                         console.log(exError);
                                     } else {
+                                        postTitle.innerHTML = exResponseData[0].data.children[0].data.title;
                                         var comment = getComment(exResponseData, false);
                                         text.innerHTML = comment.data.body;
 

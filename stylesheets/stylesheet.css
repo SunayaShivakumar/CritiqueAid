@@ -171,6 +171,10 @@ button:focus, #ca-search-field:focus, #ca-search:focus, #ca-report:focus, #ca-re
     display: none;
 }
 
+#ca-post-title {
+    font-weight: 600;
+}
+
 /* classes styles */
 .ca-description, .fa {
     color: var(--ca-blue);
@@ -215,4 +219,8 @@ button:focus, #ca-search-field:focus, #ca-search:focus, #ca-report:focus, #ca-re
     background: var(--ca-yellow);
     border: var(--ca-blue) solid 1px;
     cursor: pointer;
+}
+
+.selected {
+    border: var(--ca-blue) solid 1px;
 }
