@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Reddit Chrome Extension to aid critique or feedback quality.">
+        <meta name="author" content="Sunaya Shivakumar">
+        <title>CritiqueAid</title>
+        <link rel="stylesheet" type="text/css" href="../stylesheets/options.css">
+    </head>
+    <body>
+        <header>
+            <div id="op_header">
+                <img src="../images/icon_128.png" id="op_logo">
+                <h1 id="op_title">
+                    <span id="op_critique">Critique</span><span id="op_aid">Aid</span>
+                </h1>
+            </div>
+        </header>
+        <div id="op_body">
+            <div id="op_about">
+                <h2 id="op_about_head">What is CritiqueAid?</h2>
+                <p id="op_about_text">
+                    CritiqueAid is a Google Chrome extension for the <a href="https://www.reddit.com/r/design_critiques/" target="_blank">design_critiques</a> subreddit
+                    that aids in writing meaningful, constructive critiques through exposure to real, example critiques.
+                </p>
+            </div>
+            <img src="../images/preview.png" id="op_preview">
+
+            <div id="op_user_prefs">
+                <h2 id="op_user_pref_head">Set your preferences below:</h2>
+            <div id="op_topics">
+                <h3 id="op_topics_head">Select design areas that you care about.</h3>
+                <p id="op_topics_text">CritiqueAid will show you example critiques related to selected design areas.</p>
+                <div id="op_topics_topics">
+                    <input id="websites_box" type="checkbox" name="topic" value="website" checked>Websites<br>
+                    <input id="portfolios_box" type="checkbox" name="topic" value="portfolio" checked>Portfolios<br>
+                    <input id="logos_box" type="checkbox" name="topic" value="portfolio" checked>Logos<br>
+                </div>
+            </div>
+            <div id="op_criteria">
+                <h3 id="op_criteria_head">Adjust criteria based on which CritiqueAid will select example critiques.</h3>
+                <p>Length of the critique <span style="color: #666666; font-size: x-small;">(how verbose a critique is)</span>:</p>
+                <input type="range" min="1" max="3" value="2" id="op_length">
+                <ul class="op_labels labels_one">
+                    <li>short</li>
+                    <li>average</li>
+                    <li>long</li>
+                </ul>
+                <p>Sentiment of the critique <span style="color: #666666; font-size: x-small;">(the attitude of a critique)</span>:</p>
+                <input type="range" min="1" max="3" value="2" id="op_sentiment">
+                <ul class="op_labels labels_two">
+                    <li>negative</li>
+                    <li>neutral</li>
+                    <li>positive</li>
+                </ul>
+                <p>Activeness of the critique <span style="color: #666666; font-size: x-small;">(how useful a critique is)</span>:</p>
+                <input type="range" min="1" max="3" value="2" id="op_specificity">
+                <ul class="op_labels labels_three">
+                    <li>passive</li>
+                    <li>neutral</li>
+                    <li>active</li>
+                </ul>
+                <br>
+                <p></p>
+                <input type="submit" value="Save Preferences" id="user_prefs">
+                <p></p>
+            </div>
+            </div>
+        </div>
+        <footer>
+            <div id="op_footer">
+                <p>© 2018 CritiqueAid 2.0</p>
+            </div>
+        </footer>
+    </body>
+    <script type="text/javascript" src="../scripts/options.js"></script>
+</html>

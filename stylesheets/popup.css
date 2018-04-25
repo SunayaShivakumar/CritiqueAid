@@ -1,0 +1,50 @@
+:root {
+    /* colors */
+    --ca-yellow: #FFBF00;
+    --ca-blue: #1A70AB;
+    --ca-grey: #BCBCBC;
+
+    /* padding */
+    --ca-padding-sm: 5px;
+    --ca-padding-med: 10px;
+
+    /* other sizes */
+    --ca-font-size: 14px;
+    --ca-border-radius: 4px;
+}
+
+body {
+    width: 200px;
+}
+
+h2 {
+    display: inline-block;
+}
+
+#ca-yellow {
+    color: var(--ca-yellow);
+    font-weight: 700;
+}
+
+#ca-blue {
+    color: var(--ca-blue);
+    font-weight: 300;
+}
+
+#ca-header {
+    border-bottom: var(--ca-blue) solid 1px;
+    justify-content: center;
+    text-align: center;
+}
+
+#ca-options, #ca-feedback {
+    text-align: center;
+    border-bottom: var(--ca-blue) solid 1px;
+    padding: 10px 0px;
+}
+
+#ca-options a, #ca-feedback a {
+    text-decoration: none;
+    color: var(--ca-blue);
+    outline: none;
+}

@@ -1,0 +1,139 @@
+html, body {
+    margin: 0px !important;
+}
+
+header {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 65, 99, 0.075);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    background-color: rgba(14, 65, 99, 0.075);
+    box-shadow: 0 -4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#op_header, #op_footer {
+    margin: 15px 100px;
+    display: inline-flex;
+}
+
+#op_logo {
+    height: 49px;
+    width: auto;
+}
+
+#op_title {
+    font-size: large;
+    padding-left: 15px;
+}
+
+#op_critique {
+    color: #FFBF00;
+}
+
+#op_aid {
+    color: #1A70AB;
+}
+
+#op_body {
+    /*height:;*/
+    font-size: small;
+    margin: 15px 100px;
+    display: inline-block;
+}
+
+a {
+    color: #1A70AB;
+    text-decoration: none;
+}
+
+#op_preview {
+    width: 50%;
+    float: right;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+#op_user_pref_head {
+    display: inline-block;
+    font-size: medium;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+#op_topics_head, #op_criteria_head {
+    color: #1A70AB;
+}
+
+#op_about_head, #op_topics_head, #op_criteria_head {
+    margin-top: 15px;
+    font-size: medium;
+}
+
+#op_about_text, #op_topics_text {
+    float: left;
+    width: 45%;
+    margin-top: 0px !important;
+}
+
+#op_topics_topics {
+    display: inline-block;
+}
+
+#op_about_text {
+    padding-bottom: 12px;
+}
+
+input[type=range] {
+    margin: 0px 20px;
+    width: 450px;
+}
+
+.op_labels {
+    list-style: none;
+    padding-left: 0px !important;
+    font-size: x-small;
+    color: #666666;
+}
+
+.labels_one li:not(:last-child) {
+    margin-right: 200px;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+
+.labels_two li:not(:last-child) {
+    margin-right: 188px;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+
+.labels_three li:not(:last-child) {
+    margin-right: 192px;
+    position: relative;
+    float: left;
+    text-align: center;
+}
+
+h3 {
+    font-size: small !important;
+}
+
+#user_prefs {
+    font-size: medium;
+    border-color: #1A70AB;
+    border-radius: 4px;
+    padding: 4px 15px;
+}
+
+#user_prefs:active {
+    background-color: rgba(14, 65, 99, 0.25);
+}
+
+#user_prefs:focus {
+    outline:none;
+}
