@@ -39,7 +39,6 @@ var body = document.createElement('div');
 body.setAttribute("id", "ca_body");
 var result = document.createElement('p');
 result.setAttribute("id", "ca_result_text");
-result.innerHTML = 'Sample critiques for websites:';
 
 var crit_row = document.createElement('div');
 crit_row.setAttribute("id", "ca_crit_row");
@@ -384,23 +383,41 @@ var baseURL = "https://www.reddit.com";
 var designCritiquesURL = baseURL + "/r/design_critiques";
 
 chrome.storage.sync.get(['isWeb', 'isPrt', 'isLog', 'valLen', 'valSnt', 'valSpc'], function (userPrefs) {
+    var caResTxt = "Sample critiques for ";
+
     lenSemantic = getSemantic(userPrefs.valLen, 1);
     sntSemantic = getSemantic(userPrefs.valSnt, 2);
     actSemantic = getSemantic(userPrefs.valSpc, 3);
+
     document.getElementById("ca_curr_opts").innerHTML = "*Current preferences are set to find critiques that are " + lenSemantic + sntSemantic + actSemantic;
 
     var searchURL = designCritiquesURL + "/search.json?q=";
     if (userPrefs.isWeb === true) {
         searchURL = searchURL + "website+";
+        caResTxt = caResTxt + "websites";
     }
 
     if (userPrefs.isPrt === true) {
         searchURL = searchURL + "portfolio+";
+
+        if (userPrefs.isWeb === true) {
+            caResTxt = caResTxt + ", portfolios";
+        } else {
+            caResTxt = caResTxt + "portfolios";
+        }
     }
 
     if (userPrefs.isLog === true) {
         searchURL = searchURL + "logo+";
+
+        if (userPrefs.isWeb === true || userPrefs.isPrt === true) {
+            caResTxt = caResTxt + ", logos";
+        } else {
+            caResTxt = caResTxt + "logos";
+        }
     }
+
+    document.getElementById("ca_result_text").innerHTML = caResTxt + ":";
 
     searchURL = searchURL.slice(0, -1);
     searchURL = searchURL + "&restrict_sr=on&sort=relevance&t=all";
