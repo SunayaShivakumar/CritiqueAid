@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "CritiqueAid",
-  "version": "2.0",
+  "version": "2.1",
   "description": "Google Chrome Extension for Reddit to aid in design critique quality.",
   "author": "Sunaya Shivakumar",
 

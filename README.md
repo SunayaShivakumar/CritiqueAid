@@ -15,6 +15,8 @@ Google Chrome Extension for Reddit to aid in design critique quality.
 * Adjust preferences using options page of the extension.
 
 #### Version History:
+* 2.1 (Published 05/01/18):
+	* Bug fix to handle default settings when first installed.
 * 2.0 (Published 04/24/18):
 	* New version release.
 * 1.1 (Published 12/28/17):

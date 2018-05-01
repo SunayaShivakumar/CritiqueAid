@@ -99,7 +99,7 @@ currOptions.setAttribute("id", "ca_curr_opts");
 
 var optionsLink = document.createElement('a');
 optionsLink.setAttribute("id", "ca_link_options");
-optionsLink.setAttribute("href", "chrome-extension://noflkppialgmfjoaceeebpeldjnabkch/views/options.html");
+optionsLink.setAttribute("href", "chrome-extension://ciiljocaanbjbmhhnoeemepjmndjeijj/views/options.html");
 optionsLink.setAttribute("target", "_blank");
 optionsLink.innerHTML = 'Learn more about, and set your preferences based on which the sample critiques are chosen.';
 
@@ -237,6 +237,9 @@ function getRandomInt(min, max) {
  * @returns {Array} - array of rankings for all the critiques in a post
  */
 function rankLength(response, pref) {
+    if (!pref) {
+        pref = 2;
+    }
     var lim1 = 250;
     var lim2 = 1000;
     var lenArr = [];
@@ -263,6 +266,9 @@ function rankLength(response, pref) {
  * @returns {Array} - array of ranking for all the critiques in a post
  */
 function rankSentiment(response, pref) {
+    if (!pref) {
+        pref = 2;
+    }
     var sntArr = [];
     var numComments = response[1].data.children.length;
     for (var i = 0; i < numComments; i++) {
@@ -288,6 +294,9 @@ function rankSentiment(response, pref) {
  * @returns {Array} - array of ranking for all the critiques in a post
  */
 function rankActiveness(response, pref) {
+    if (!pref) {
+        pref = 2;
+    }
     var actArr = [];
     var numComments = response[1].data.children.length;
     for (var i = 0; i < numComments; i++) {
@@ -384,40 +393,47 @@ var designCritiquesURL = baseURL + "/r/design_critiques";
 
 chrome.storage.sync.get(['isWeb', 'isPrt', 'isLog', 'valLen', 'valSnt', 'valSpc'], function (userPrefs) {
     var caResTxt = "Sample critiques for ";
-
-    lenSemantic = getSemantic(userPrefs.valLen, 1);
-    sntSemantic = getSemantic(userPrefs.valSnt, 2);
-    actSemantic = getSemantic(userPrefs.valSpc, 3);
-
-    document.getElementById("ca_curr_opts").innerHTML = "*Current preferences are set to find critiques that are " + lenSemantic + sntSemantic + actSemantic;
-
     var searchURL = designCritiquesURL + "/search.json?q=";
-    if (userPrefs.isWeb === true) {
-        searchURL = searchURL + "website+";
-        caResTxt = caResTxt + "websites";
-    }
 
-    if (userPrefs.isPrt === true) {
-        searchURL = searchURL + "portfolio+";
+    if (!userPrefs.isWeb && !userPrefs.isPrt && !userPrefs.isLog && !userPrefs.valLen && !userPrefs.valSnt && !userPrefs.valSpc) {
+        var lenSemantic = getSemantic(2, 1);
+        var sntSemantic = getSemantic(2, 2);
+        var actSemantic = getSemantic(2, 3);
+        searchURL = searchURL + "website+portfolio+logo+";
+        caResTxt = caResTxt + "websites, portfolios, logos";
+    } else {
+        var lenSemantic = getSemantic(userPrefs.valLen, 1);
+        var sntSemantic = getSemantic(userPrefs.valSnt, 2);
+        var actSemantic = getSemantic(userPrefs.valSpc, 3);
 
         if (userPrefs.isWeb === true) {
-            caResTxt = caResTxt + ", portfolios";
-        } else {
-            caResTxt = caResTxt + "portfolios";
+            searchURL = searchURL + "website+";
+            caResTxt = caResTxt + "websites";
         }
-    }
 
-    if (userPrefs.isLog === true) {
-        searchURL = searchURL + "logo+";
+        if (userPrefs.isPrt === true) {
+            searchURL = searchURL + "portfolio+";
 
-        if (userPrefs.isWeb === true || userPrefs.isPrt === true) {
-            caResTxt = caResTxt + ", logos";
-        } else {
-            caResTxt = caResTxt + "logos";
+            if (userPrefs.isWeb === true) {
+                caResTxt = caResTxt + ", portfolios";
+            } else {
+                caResTxt = caResTxt + "portfolios";
+            }
+        }
+
+        if (userPrefs.isLog === true) {
+            searchURL = searchURL + "logo+";
+
+            if (userPrefs.isWeb === true || userPrefs.isPrt === true) {
+                caResTxt = caResTxt + ", logos";
+            } else {
+                caResTxt = caResTxt + "logos";
+            }
         }
     }
 
     document.getElementById("ca_result_text").innerHTML = caResTxt + ":";
+    document.getElementById("ca_curr_opts").innerHTML = "*Current preferences are set to find critiques that are " + lenSemantic + sntSemantic + actSemantic;
 
     searchURL = searchURL.slice(0, -1);
     searchURL = searchURL + "&restrict_sr=on&sort=relevance&t=all";
